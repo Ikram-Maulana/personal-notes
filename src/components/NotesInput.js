@@ -57,7 +57,12 @@ class NotesInput extends React.Component {
 
   onSubmitEventHandler(event) {
     event.preventDefault();
-    this.props.addNote(this.state);
+
+    if (this.state.title.length === 0 || this.state.body.length === 0) {
+      alert("Judul dan isi catatan harus diisi");
+    } else {
+      this.props.addNote(this.state);
+    }
   }
 
   onResetEventHandler(event) {
@@ -87,7 +92,6 @@ class NotesInput extends React.Component {
             placeholder="Ini adalah judul ..."
             value={this.state.title}
             onChange={this.onTitleChangeEventHandler}
-            required
           />
           <textarea
             className="note-input__body"
@@ -95,7 +99,6 @@ class NotesInput extends React.Component {
             placeholder="Tuliskan catatanmu di sini ..."
             value={this.state.body}
             onChange={this.onBodyChangeEventHandler}
-            required
           ></textarea>
           <div className="note-input__action">
             <button type="submit" className="note-input__action-submit">

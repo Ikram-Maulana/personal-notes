@@ -3,6 +3,7 @@ import { getInitialData } from "../utils";
 import NotesBody from "./NotesBody";
 import NotesHeader from "./NotesHeader";
 import { nanoid } from "nanoid";
+import autoBind from "auto-bind";
 
 class NotesApp extends React.Component {
   constructor(props) {
@@ -13,10 +14,7 @@ class NotesApp extends React.Component {
     };
 
     // Binding
-    this.onSearchEventHandler = this.onSearchEventHandler.bind(this);
-    this.onDeleteEventHandler = this.onDeleteEventHandler.bind(this);
-    this.onArchivedEventHandler = this.onArchivedEventHandler.bind(this);
-    this.addNoteHandler = this.addNoteHandler.bind(this);
+    autoBind(this);
   }
 
   onSearchEventHandler(keyword) {

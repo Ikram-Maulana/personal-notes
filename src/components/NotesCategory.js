@@ -1,8 +1,8 @@
 import React from "react";
 import NotesList from "./NotesList";
 
-function NotesCategory({ notes, archived, keyword, onDelete, onArchived }) {
-  if (archived) {
+function NotesCategory({ notes, type, keyword, onDelete, onArchived }) {
+  if (type === "archived") {
     const filteredArchiveNotes = notes.filter((note) => note.archived === true);
     return (
       <NotesList

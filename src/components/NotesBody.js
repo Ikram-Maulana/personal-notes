@@ -3,13 +3,14 @@ import NotesCategory from "./NotesCategory";
 import NotesInput from "./NotesInput";
 
 function NotesBody({ notes, keyword, onDelete, onArchived, addNote }) {
+  const archivedType = "archived";
+
   return (
     <div className="note-app__body">
       <NotesInput addNote={addNote} />
       <h2>Catatan Aktif</h2>
       <NotesCategory
         notes={notes}
-        archived={false}
         keyword={keyword}
         onDelete={onDelete}
         onArchived={onArchived}
@@ -17,7 +18,7 @@ function NotesBody({ notes, keyword, onDelete, onArchived, addNote }) {
       <h2>Arsip</h2>
       <NotesCategory
         notes={notes}
-        archived={true}
+        type={archivedType}
         keyword={keyword}
         onDelete={onDelete}
         onArchived={onArchived}
